@@ -1,0 +1,68 @@
+/* 
+Steps : 
+
+ 1) Open schedular using 'Run as a administrator'
+ 2) Right click and create task
+ 3) Set the configurations
+ 4) In action tab set the action need to be taken to run the script. To run the jemeter script following configuration is required
+    Action : Start a program
+    Program/Script : D:\softwares\apache-jmeter-5.2.1\bin\jmeter.bat
+    Add Arguments : -n -t  "D:\softwares\apache-jmeter-5.2.1\extras\TFS_Perf_Script.jmx" -l "D:\softwares\apache-jmeter-5.2.1\extras\results2.csv"
+ 5) Set the action as above and trigger time in trigger tab. Script will run at trigger time summary report is generated in given path. here results2.csv 
+ 
+ Note : double qoutes are important while adding arguments. */
+ 
+ // Exported task schedular file contain given below
+ 
+ 
+ <?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2019-12-18T12:23:47.3130632</Date>
+    <Author>EXFONT\mugwad1</Author>
+    <URI>\Test</URI>
+  </RegistrationInfo>
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2019-12-18T14:41:00</StartBoundary>
+      <Enabled>true</Enabled>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-9846896-1015745837-1237804090-150863</UserId>
+      <LogonType>InteractiveToken</LogonType>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>false</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>false</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <DisallowStartOnRemoteAppSession>false</DisallowStartOnRemoteAppSession>
+    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>PT72H</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>D:\softwares\apache-jmeter-5.2.1\bin\jmeter.bat</Command>
+      <Arguments>-n -t  "D:\softwares\apache-jmeter-5.2.1\extras\TFS_Perf_Script.jmx" -l "D:\softwares\apache-jmeter-5.2.1\extras\results2.csv"</Arguments>
+    </Exec>
+  </Actions>
+</Task>
