@@ -4,5 +4,7 @@ Windows commands :
  3) git add :
  4) Git commit
  5) git push origin master (branch)
- 
+ 6) Update the configuration globallay as following example : 
+    git config --global user.name "Mugdha W"
+     git config --global user.email mugdha@gmail.com
 * Generate public key using ssh-key gen if permission denied during clone using ssh
